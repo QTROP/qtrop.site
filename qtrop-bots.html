@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QTROP BOTS | QTROPWINNERS</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 2rem;
+    }
+    header {
+      background: #1e293b;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+    }
+    header a {
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+    header a:hover {
+      color: white;
+    }
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+      margin-bottom: 2rem;
+    }
+    .bot-card {
+      background-color: #1e293b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px #0ea5e9aa;
+      margin: 1rem auto;
+      max-width: 400px;
+    }
+    .bot-card h3 {
+      margin: 0 0 1rem;
+      color: #22d3ee;
+    }
+    .bot-card button {
+      padding: 0.6rem 1rem;
+      border: none;
+      background-color: #22c55e;
+      color: #0f172a;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .bot-card button:hover {
+      background-color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">Home</a>
+  <a href="bot-builder.html">Bot Builder</a>
+  <a href="analysis-tool.html">Analysis Tool</a>
+  <a href="trading-view.html">Trading View</a>
+  <a href="login.html">Login / Sign Up</a>
+</header>
+
+<h1>QTROP BOTS</h1>
+
+<div class="bot-card">
+  <h3>AUDI</h3>
+  <p>Smart & consistent block logic</p>
+  <button onclick="loadAudi()">Load AUDI</button>
+</div>
+
+<div class="bot-card">
+  <h3>GLE</h3>
+  <p>Dynamic aggressive strategy</p>
+  <button onclick="loadGle()">Load GLE</button>
+</div>
+
+<div class="bot-card">
+  <h3>SUBARU</h3>
+  <p>Reliable trend response bot</p>
+  <button onclick="loadSubaru()">Load SUBARU</button>
+</div>
+
+<div class="bot-card">
+  <h3>V8</h3>
+  <p>High-speed sniper-style entries</p>
+  <button onclick="loadV8()">Load V8</button>
+</div>
+
+<script>
+  function loadAudi() {
+    fetch('bots/audi.xml')
+      .then(res => res.ok ? res.text() : Promise.reject('AUDI bot file not found'))
+      .then(data => alert('AUDI bot loaded successfully!'))
+      .catch(err => alert(err));
+  }
+
+  function loadGle() {
+    fetch('bots/gle.xml')
+      .then(res => res.ok ? res.text() : Promise.reject('GLE bot file not found'))
+      .then(data => alert('GLE bot loaded successfully!'))
+      .catch(err => alert(err));
+  }
+
+  function loadSubaru() {
+    fetch('bots/subaru.xml')
+      .then(res => res.ok ? res.text() : Promise.reject('SUBARU bot file not found'))
+      .then(data => alert('SUBAR
