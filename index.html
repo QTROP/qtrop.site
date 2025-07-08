@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QTROPWINNERS - Landing</title>
+<style>
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: Arial, sans-serif;
+    background: url('images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+  }
+  #overlay {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+    color: #38bdf8;
+  }
+  h2 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  /* Navigation bar */
+  header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: #1e293b;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+    font-weight: bold;
+    z-index: 20;
+  }
+  header a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  header a:hover {
+    color: white;
+  }
+  /* Dollar animation */
+  .dollar {
+    position: fixed;
+    top: -50px;
+    font-size: 1.5rem;
+    color: limegreen;
+    user-select: none;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+  @keyframes fall {
+    to {
+      transform: translateY(110vh);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="bot-builder.html">Bot Builder</a>
+  <a href="analysis-tool.html">Analysis Tool</a>
+  <a href="qtrop-bots.html">QTROP BOTS</a>
+  <a href="trading-view.html">Trading View</a>
+  <a href="login.html">Login / Sign Up</a>
+</header>
+
+<div id="overlay">
+  <h1>Welcome to QTROP.SITE</h1>
+  <h2>Home of Winners</h2>
+</div>
+
+<script>
+  // Create colorful dollar symbols raining for 5 seconds
+  const colors = ['#22c55e','#10b981','#34d399','#6ee7b7','#bbf7d0'];
+  const count = 50;
+
+  function createDollar() {
+    const dollar = document.createElement('div');
+    dollar.textContent = '$';
+    dollar.className = 'dollar';
+    dollar.style.left = Math.random() * 100 + 'vw';
+    dollar.style.fontSize = (10 + Math.random()*20) + 'px';
+    dollar.style.color = colors[Math.floor(Math.random()*colors.length)];
+    dollar.style.animationDuration = (3 + Math.random()*2) + 's';
+    document.body.appendChild(dollar);
+
+    dollar.addEventListener('animationend', () => {
+      dollar.remove();
+    });
+  }
+
+  // Generate dollars rapidly for 5 seconds
+  let interval = setInterval(() => {
+    createDollar();
+  }, 100);
+
+  // After 5 seconds hide overlay and stop animation
+  setTimeout(() => {
+    clearInterval(interval);
+    const overlay = document.getElementById('overlay');
+    overlay.style.transition = 'opacity 1s ease';
+    overlay.style.opacity = 0;
+    setTimeout(() => overlay.style.display = 'none', 1000);
+  }, 5000);
+</script>
+
+</body>
+</html>
