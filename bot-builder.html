@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bot Builder | QTROPWINNERS</title>
+<style>
+  body {
+    background-color: #0f172a;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 2rem;
+  }
+  header {
+    background: #1e293b;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+  }
+  header a {
+    color: #cbd5e1;
+    text-decoration: none;
+  }
+  header a:hover {
+    color: white;
+  }
+  main {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #1e293b;
+    padding: 2rem;
+    border-radius: 12px;
+  }
+  h1 {
+    text-align: center;
+    color: #38bdf8;
+  }
+  label {
+    display: block;
+    margin: 1rem 0 0.3rem;
+  }
+  select, input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: none;
+  }
+  button {
+    margin-top: 2rem;
+    width: 100%;
+    background-color: #22c55e;
+    color: #0f172a;
+    font-weight: bold;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #16a34a;
+  }
+  .summary {
+    margin-top: 2rem;
+    background: #111827;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">Home</a>
+  <a href="analysis-tool.html">Analysis Tool</a>
+  <a href="qtrop-bots.html">QTROP BOTS</a>
+  <a href="trading-view.html">Trading View</a>
+  <a href="login.html">Login / Sign Up</a>
+</header>
+
+<main>
+  <h1>Bot Builder</h1>
+  <form id="botForm">
+    <label for="botSelect">Select Bot</label>
+    <select id="botSelect" required>
+      <option value="" disabled selected>Select a bot</option>
+      <option value="wantam">Wantam</option>
+      <option value="must-kill">Must Kill</option>
+      <option value="sharp-hit">Sharp Hit</option>
+      <option value="sniper-touch">Sniper Touch</option>
+    </select>
+
+    <label for="volatilitySelect">Select Volatility</label>
+    <select id="volatilitySelect" required>
+      <option value="" disabled selected>Select volatility</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+      <option value="all">All Volatility</option>
+    </select>
+
+    <button type="submit">Build Bot</button>
+  </form>
+
+  <div class="summary" id="summary" style="display:none;">
+    <h2>Bot Summary</h2>
+    <p id="summaryText"></p>
+  </div>
+</main>
+
+<script>
+  const form = document.getElementById('botForm');
+  const summaryDiv = document.getElementById('summary');
+  const summaryText = document.getElementById('summaryText');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const bot = document.getElementById('botSelect').value;
+    const volatility = document.getElementById('volatilitySelect').value;
+
+    summaryText.textContent = `You have selected the bot "${bot}" with "${volatility}" volatility. All settings are correct.`;
+    summaryDiv.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
